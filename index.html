@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FB Photo Album</title>
+    <link rel="stylesheet" href="css/screen.css">
+</head>
+<body>
+<div id="fb-root"></div>
+<div class="FB">
+    <ul>
+        <li>
+            <span class="loginStatus">Not logged in</span>
+        </li>
+        <li>
+            <a href="#" class="btnLogin">Login FB</a>
+        </li>
+        <li>
+            <a href="#" class="btnLogout">Logout</a>
+        </li>
+    </ul>
+</div>
+<span class="showAlbum">Show Photo Album</span>
+<div class="album"></div>
+<div class="items"></div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script>
+    window.fbAsyncInit = function() {
+        FB.init({
+            appId      : '127513691108337',
+            xfbml      : true,
+            version    : 'v2.8'
+        });
+
+        FB.getLoginStatus(function(response) {
+            if (response.authResponse) {
+                $(".loginStatus").html("Logged in");
+            } else {
+                $(".loginStatus").html("Not logged in");
+            }
+        });
+    };
+
+    (function(d, s, id){
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {return;}
+        js = d.createElement(s); js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script>
+<script type="text/javascript" src="js/start.js"></script>
+</body>
+</html>

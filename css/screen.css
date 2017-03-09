@@ -1,0 +1,19 @@
+.items ul, .album ul {
+    list-style-type: none;
+}
+.items ul li, .album ul li {
+    float: left;
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+}
+.album ul li {
+    height: auto;
+}
+.items li img, .album li img {
+    max-width: 100%;
+}
+.items, .album {
+    clear: both;
+    overflow: hidden;
+}
